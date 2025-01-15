@@ -1,0 +1,17 @@
+- name: Verify created directory
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Check if the directory exists
+      ansible.builtin.stat:
+        path: /tmp/testDir
+      register: dir_status
+
+    - name: Debug Directory Status
+      ansible.builtin.debug:
+        msg: "Directory exists: {{ dir_status.stat.exists }}"
+
+    - name: Fail if directory not exist
+      ansible.builtin.fail:
+        msg: "The directory /tmp/testDir2 does not exist"
+      when: not dir_status.stat.exists
