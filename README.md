@@ -9,3 +9,10 @@ Prerequisites (a guide to setting these up can be found below) :
 # Initial Setup
 
 What follows are the steps you will need to follow to setup this test environment.
+
+## Proxmox Server Configuration
+### Token Creation
+Molecule will be connecting to Proxmox with a token, so you will need to create an access token for it to use.
+
+- Logon to the Proxmox web UI
+- Navigate to `Datacenter → API Tokens` and click the `Add` button
