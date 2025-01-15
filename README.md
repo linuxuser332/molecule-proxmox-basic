@@ -30,7 +30,11 @@ What follows are the steps you will need to follow to setup this test environmen
 - Switch to new Python environment: `source virtualenv/bin/activate`
 - Ensure no errors, and that command prompt now shows `(virtualenv)`
 - Ensure pip updated: `pip install --upgrade pip`
-- Install molecule and the proxmox driver: `pip install molecule molecule-proxmox`
+- Install molecule and the proxmox driver: `pip install molecule molecule-proxmox requests`
+
+**Install Ansible modules**:
+
+- `ansible-galaxy collection install community.general`
 
 **Configure molecule.yml**:
 
@@ -121,3 +125,5 @@ Now that the Proxmox token exists it can be configured in the file `vars/secrets
 If all is configured correctly, Molecule should now (via the molecule-proxmox driver) be able to create a test VM, apply the Ansible role `makeTestDir` and test that it runs successfully.  
 
 - Change to the role directory eg: `cd ~/molecule-proxmox-basic/roles/makeTestDir`
+- Issue the command `molecule create`.  This should result in Molecule creating the VM
+- Once the VM has been created, test the destroy feature: `molecule destroy`.  This should result in the VM being deleted.
