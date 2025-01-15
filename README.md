@@ -125,5 +125,10 @@ Now that the Proxmox token exists it can be configured in the file `vars/secrets
 If all is configured correctly, Molecule should now (via the molecule-proxmox driver) be able to create a test VM, apply the Ansible role `makeTestDir` and test that it runs successfully.  
 
 - Change to the role directory eg: `cd ~/molecule-proxmox-basic/roles/makeTestDir`
-- Issue the command `molecule create`.  This should result in Molecule creating the VM
-- Once the VM has been created, test the destroy feature: `molecule destroy`.  This should result in the VM being deleted.
+- Issue the command `molecule create`.  This should result in Molecule creating the VM.
+- If that was successful, you can now issue the other molecule commands. `molecule verify` will deploy the role and verify that it worked properly.
+- `molecule idempotence` will ensure the role is idempotent. 
+- When you are ready to destroy the VM run  `molecule destroy`.  This should result in the VM being deleted.
+- An entire test run from start to finish can be run with `molecule test`
+
+
