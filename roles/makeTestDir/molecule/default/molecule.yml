@@ -3,19 +3,19 @@ driver:
   options:
     debug: true
     # Provide the absolute path to the secrets.yml file. I cannot get this to work with a relative path ATM
-    proxmox_secrets: <<full path>>
-    node: <<hostname of proxmox server>>
+    proxmox_secrets: << full path to secrets.yml >>
+    node: << hostname of proxmox server >>
     ssh_port: 22
-    ssh_identity_file: <<path to the private key>>
+    ssh_identity_file: << full path to the private key >>
     timeout: 300
 
 
 # Define the platforms to test on. In this basic case, there is a single Rocky 9 platform
 platforms:
   - name: molecule-rocky9
-    template_name: << Name of the template as seen in the Proxmox GUI>>
+    template_name: << Name of the template as seen in the Proxmox GUI >>
     ostype: l26
-    hostname: << name of the host to create for this test eg: molecule-rocky9-test>>
+    hostname: << name of the host to create for this test eg: molecule-rocky9-test >>
     ssh_private_key_file: << full path to the private key >>
 
 

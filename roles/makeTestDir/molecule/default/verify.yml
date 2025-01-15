@@ -4,7 +4,7 @@
   tasks:
     - name: Check if the directory exists
       ansible.builtin.stat:
-        path: /tmp/testDir
+        path: /tmp/testDirectory
       register: dir_status
 
     - name: Debug Directory Status
@@ -13,5 +13,5 @@
 
     - name: Fail if directory not exist
       ansible.builtin.fail:
-        msg: "The directory /tmp/testDir2 does not exist"
+        msg: "The directory /tmp/testDirectory does not exist"
       when: not dir_status.stat.exists
