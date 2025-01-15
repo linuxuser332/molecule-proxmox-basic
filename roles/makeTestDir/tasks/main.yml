@@ -1,0 +1,7 @@
+---
+- name: Create a test directory
+  ansible.builtin.file:
+    path: /tmp/testDirectory
+    state: directory
+
+
