@@ -38,17 +38,16 @@ What follows are the steps you will need to follow to setup this test environmen
 
 **Configure molecule.yml**:
 
-The driver and platforms now need configuring within `molecule.yml`:
+The driver and platforms now need configuring. Using preferred text editor, set the following fields within `roles/makeTestDir/molecule/default/molecule.yml`: 
 
-- `cd roles/makeTestDir/molecule/default`
-- Using preferred text editor (vi/vim/nano) edit the file: `vim molecule.yml`
-- Line 6 (`proxmox_secrets`): Configure absolute path to `secrets.yml`. If repo was cloned into `$HOME` then the path would be `~/molecule-proxmox-basic/roles/makeTestDir/molecule/default/vars/secrets.yml` 
-- Line 7 (`node`): Set hostname
-- Line 9 (`ssh_identity_file`): Set absolute path to private key (`~/.ssh/id_rsa`)
-- Line 16 (`template_name`): Match the template name shown in Proxmox UI
-- Line 18: `hostname`:  to name of the VM for molecule to create
-- Line 19 (`ssh_private_key_file`): Set path to private key (`~/.ssh/id_rsa`)
-
+|Line|Field                |Description                               |
+|----|---------------------|------------------------------------------|
+|6   |`proxmox_secrets`      |Full path to `secrets.yml`              |
+|7   |`node`                 |Hostname of Proxmox server              |
+|9   |`ssh_identity_file`    |Full path to the private key            |
+|16  |`template_name`        |Name of the template to deploy          |
+|18  |`hostname`             |The name of the VM molecule will deploy |
+|19  |`ssh_private_key_file` |Full path to the private key            |
 
 ## Proxmox Server Configuration
 ### Token Creation
